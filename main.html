@@ -4,45 +4,70 @@
   <meta charset="UTF-8">
   <title>ランダム抽出</title>
 </head>
+
 <body>
 
   <h2>ランダム抽出</h2>
 
-  <p>CSVを入力：</p>
-  <input type="text" id="csv" value="バンテージ、ライフラ、マギー">
+  <!-- CSV入力 -->
+  <p>候補をカンマ区切りで入力：</p>
+  <input
+    type="text"
+    id="csv"
+    placeholder="バンテージ,ライフラ,マギー"
+    style="width:300px;"
+  >
 
-  <p>選ぶ数：</p>
-  <input type="number" id="count" value="1" min="1">
+  <!-- 個数 -->
+  <p>選ぶ個数：</p>
+  <input
+    type="number"
+    id="count"
+    value="1"
+    min="1"
+  >
 
-  <button onclick="randomSelect()">ランダム</button>
+  <br><br>
 
+  <button onclick="randomSelect()">ランダム抽出</button>
+
+  <!-- 結果 -->
   <p>結果：</p>
-  <input type="text" id="result" readonly>
+  <input
+    type="text"
+    id="result"
+    readonly
+    style="width:300px;"
+  >
 
   <script>
     function randomSelect() {
-      // CSVを「、」で分割
-      let items = document.getElementById("csv").value.split("、");
 
-      // 空白を削除
-      items = items.map(item => item.trim()).filter(item => item !== "");
+      // カンマで分割
+      let items = document.getElementById("csv").value
+        .split(",")
+        .map(item => item.trim())
+        .filter(item => item !== "");
 
-      // 選ぶ数
       let count = Number(document.getElementById("count").value);
 
-      // 数が多すぎる場合
-      if (count > items.length) {
-        count = items.length;
+      // 候補がない場合
+      if (items.length === 0) {
+        document.getElementById("result").value = "";
+        return;
       }
+
+      // 個数が多すぎる場合
+      count = Math.min(count, items.length);
 
       // ランダムに並び替え
       items.sort(() => Math.random() - 0.5);
 
-      // 指定数だけ取得
+      // 指定個数を取得
       let result = items.slice(0, count);
 
-      // 表示
-      document.getElementById("result").value = result.join("、");
+      // 結果表示
+      document.getElementById("result").value = result.join(",");
     }
   </script>
 
