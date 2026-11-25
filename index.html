@@ -77,6 +77,11 @@
     カンマ区切りで候補を入力してください
   </p>
 
+<!-- 定型文ボタン -->
+<button onclick="insertText('バンガロール, ヒューズ, マッドマギー, バリスティック, レヴナント, パスファインダー, レイス, オクタン, ホライゾン, アッシュ, オルター, アクセル, ブラッドハウンド, クリプト, ヴァルキリー, シア, ヴァンテージ, コースティック, ワットソン, ランパート, カタリスト, ジブラルタル, ライフライン, ミラージュ, ローバ, ニューキャッスル, コンジット')">
+全てのレジェンド
+</button>
+
   <textarea
     id="input"
     placeholder="ろーば,まぎー,じぶ,おくたん,etc..."
@@ -100,7 +105,10 @@
 
 
   <script>
-
+function insertText(text) {
+    const box = document.getElementById("message");
+    box.value += text;
+}
     function randomPick() {
 
       const input =
