@@ -14,29 +14,22 @@
 
 <body>
 
-  <h1>ランダム抽出</h1>
+  <h1>レジェンドランダム抽出</h1>
 
-  <p>
-    カンマ区切りで候補を入力してください
-  </p>
+  <p>カンマ区切りで候補を入力してください</p>
 
-<!-- 定型文ボタン -->
-<button onclick="insertText('バンガロール, ヒューズ, マッドマギー, バリスティック, レヴナント, パスファインダー, レイス, オクタン, ホライゾン, アッシュ, オルター, アクセル, ブラッドハウンド, クリプト, ヴァルキリー, シア, ヴァンテージ, コースティック, ワットソン, ランパート, カタリスト, ジブラルタル, ライフライン, ミラージュ, ローバ, ニューキャッスル, コンジット')">
-全てのレジェンド
-</button>
+  <!-- 定型文ボタン -->
+  <button onclick="insertText('バンガロール, ヒューズ, マッドマギー, バリスティック, レヴナント, パスファインダー, レイス, オクタン, ホライゾン, アッシュ, オルター, アクセル, ブラッドハウンド, クリプト, ヴァルキリー, シア, ヴァンテージ, コースティック, ワットソン, ランパート, カタリスト, ジブラルタル, ライフライン, ミラージュ, ローバ, ニューキャッスル, コンジット')">
+  全てのレジェンド
+  </button>
 
-<button onclick="insertText('')">
-クリア
-</button>
+  <button onclick="insertText('')">クリア</button>
 
-  <textarea
-    id="input"
-    placeholder="ろーば,まぎー,じぶ,おくたん,etc..."
-  ></textarea>
+  <br></br>
+  <textarea id="input" placeholder="ろーば,まぎー,じぶ,おくたん,etc..."></textarea>
 
   <div class="count-area">
     <label for="count">出力する数：</label>
-
     <select id="count">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -44,18 +37,17 @@
     </select>
   </div>
 
-  <button onclick="randomPick()">
-    ランダム抽出
-  </button>
+  <button onclick="randomPick()">ランダム抽出</button>
 
   <div id="results"></div>
 
 
   <script>
-function insertText(text) {
+    function insertText(text) {
     const box = document.getElementById("input");
     box.value = text;
-}
+    }
+    
     function randomPick() {
 
       const input =
